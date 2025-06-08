@@ -30,10 +30,6 @@ async function invokeAction({ action, id, name, email, phone }) {
         return;
       }
       const contact = await getContactById(id);
-      if (!contact) {
-        console.warn("\x1B[31m Contact not found!");
-        return;
-      }
       console.log(contact);
       break;
 
@@ -53,7 +49,7 @@ async function invokeAction({ action, id, name, email, phone }) {
       }
       const removedContact = await removeContact(id);
       if (!removedContact) {
-        console.warn("\x1B[31m Contact not found!");
+        console.log(null);
         return;
       }
       console.log("Contact removed:", removedContact);
